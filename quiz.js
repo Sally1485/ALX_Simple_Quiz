@@ -1,27 +1,17 @@
-function  checkAnswer() {
-    const correctAnswer = '4'
-    console.log(correctAnswer);
+function checkAnswer () {
+  const correctAnswer = '4';
+  const selectedRadioButton = document.querySelector('input[name ="quiz"]:checked');
+  const userAnswer = selectedRadioButton ? selectedRadioButton.value : null;
+  const feedbackElement = document.getElementById('feedback');
+  if (userAnswer === correctAnswer) {
+    feedbackElement.textContent = 'Correct! Well done.';
+  } else if(userAnswer) {
+    feedbackElement.textContent = "That's incorrect. Try again!";
+  } else {
+    feedbackElement.textContent = "Please select an answer.";
 }
+const submitAnswer = document.getElementById('submit-answer');
+submitAnswer.addEventListener('click', checkAnswer);
 
-const checkedRadio = document.querySelector("quiz");
-if (checkedRadio) {
-    console.log(`selected option : ${checkedRadio.value}`);
-} else{
-    console.log ('No option selected ');
-}
-
-const userAnswer = checkedRadio.value;
-console.log(userAnswer);
-
-
-if(userAnswer ===correctAnswer){
-    feedbackElement.textContent = "Correct! Well done."; // Provide positive feedback
-                } else {
-                    feedbackElement.textContent = "That is incorrect. Try again later!"; // Provide negative feedback
-                }
-
-                const button = document.getElementById("submit-answer");
-                button.addEventListener('click', checkAnswer); 
-                    
-             
-          
+}  
+checkAnswer();
