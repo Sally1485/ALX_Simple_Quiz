@@ -10,8 +10,8 @@ function checkAnswer () {
   } else {
     feedbackElement.textContent = "Please select an answer.";
 }
+}  
+
 const submitAnswer = document.getElementById('submit-answer');
 submitAnswer.addEventListener('click', checkAnswer);
 
-}  
-checkAnswer();
